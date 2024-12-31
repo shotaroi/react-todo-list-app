@@ -5,11 +5,16 @@ function App() {
 
   return (
     <>
-     <h1>Todo-list</h1>
-      <form action="submit">
-        <input type="text" />
-        <button>Add ToDo</button>
-      </form>
+      <div className='container'>
+        <div className="item">
+          <h1>Todo-list</h1>
+            <form action="submit">
+              <input type="text" />
+              <button>Add ToDo</button>
+            </form>
+        </div>
+        
+      </div>
     </>
   )
 }
