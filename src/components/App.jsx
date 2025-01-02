@@ -3,6 +3,7 @@ import ToDoList from './TodoList'
 import '../index.css'
 
 function App() {
+  const [ tasks, setTasks ] = useState([{id: 1, description: "test"}, {id: 2, description: "test2"}]);
 
   return (
     <>
@@ -13,7 +14,7 @@ function App() {
             <input type="text" placeholder='Describe a task'/>
             <button>Add</button>
           </form>
-          <ToDoList />
+          <ToDoList tasks={tasks}/>
         </div>
         
       </div>

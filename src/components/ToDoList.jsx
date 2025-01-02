@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import '../index.css';
 
-function ToDoList() {
-    const [ tasks, setTasks ] = useState(["test", "test2"]);
+function ToDoList({ tasks }) {
 
     return (
         <ul>
-            {tasks.map((todo, index) => (
-                <li>
-                    {todo}
+            {tasks.map((task) => (
+                <li key={task.id}>
+                    {task.description}
                     <button>Delete</button>
                 </li>
             ))}
