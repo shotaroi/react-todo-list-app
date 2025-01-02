@@ -9,8 +9,8 @@ function App() {
         <div className="item">
           <h1>Todo-list</h1>
             <form action="submit">
-              <input type="text" />
-              <button>Add ToDo</button>
+              <input type="text" placeholder='Describe a task'/>
+              <button>Add</button>
             </form>
         </div>
         
