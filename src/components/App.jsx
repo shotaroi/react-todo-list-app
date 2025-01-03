@@ -4,6 +4,17 @@ import '../index.css'
 
 function App() {
   const [ tasks, setTasks ] = useState([{id: 1, description: "test"}, {id: 2, description: "test2"}]);
+  const [ input, setInput ] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setTasks([...tasks, {id: tasks.length + 1, description: input}]);
+    setInput("");
+  }
+
+  const handleChange = (e) => {
+    setInput(e.target.value);
+  }
 
   return (
     <>
@@ -11,8 +22,8 @@ function App() {
         <div className="item">
           <h1>Todo-list</h1>
           <form action="submit">
-            <input type="text" placeholder='Describe a task'/>
-            <button>Add</button>
+            <input type="text" placeholder='Describe a task' value={input} onChange={handleChange}/>
+            <button onClick={handleSubmit}>Add</button>
           </form>
           <ToDoList tasks={tasks}/>
         </div>
