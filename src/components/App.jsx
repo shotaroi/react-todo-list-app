@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import ToDoList from './TodoList'
+import NewTask from './NewTask'
 import '../index.css'
 
 function App() {
@@ -31,10 +32,7 @@ function App() {
       <div className='container'>
         <div className="item">
           <h1>Todo-list</h1>
-          <form action="submit">
-            <input type="text" placeholder='Describe a task' value={input} onChange={handleChange}/>
-            <button onClick={handleSubmit}>Add</button>
-          </form>
+          <NewTask input={input} handleChange={handleChange} handleSubmit={handleSubmit} />
           <ToDoList tasks={tasks} deleteTask={deleteTask} toggleTask={toggleTask}/>
         </div>
         
