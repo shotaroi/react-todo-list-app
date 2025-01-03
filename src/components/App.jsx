@@ -8,7 +8,7 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setTasks([...tasks, {id: tasks.length + 1, description: input}]);
+    setTasks([...tasks, {id: Date.now(), description: input}]);
     setInput("");
   }
 
