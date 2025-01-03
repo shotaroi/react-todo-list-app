@@ -7,6 +7,7 @@ function ToDoList({ tasks, deleteTask }) {
         <ul>
             {tasks.map((task) => (
                 <li key={task.id}>
+                    <input type='checkbox' />
                     {task.description}
                     <button>Edit</button>
                     <button onClick={() => deleteTask(task.id)}>Delete</button>
