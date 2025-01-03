@@ -38,3 +38,12 @@ button {
 ul {
   list-style-position: inside
 }
+
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid;
+  border-radius: 0.5em;
+  margin-bottom: 0.5em;
+}

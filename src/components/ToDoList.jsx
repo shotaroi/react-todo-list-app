@@ -26,7 +26,7 @@ function ToDoList({ tasks, deleteTask, toggleTask, handleEdit }) {
     return (
         <ul>
             {tasks.map((task) => (
-                <li key={task.id} style={{textDecoration: task.completed ? "line-through" : "none"}} >
+                <li className='task' key={task.id} style={{textDecoration: task.completed ? "line-through" : "none"}} >
                     { editingId === task.id  ?
                         <input type="text" value={editedTask} onChange={(e) => handleEditedTask(e)} /> :
                         <span onClick={() => toggleTask(task.id)}>{task.description}</span> 
