@@ -8,6 +8,7 @@ function ToDoList({ tasks, deleteTask }) {
             {tasks.map((task) => (
                 <li key={task.id}>
                     {task.description}
+                    <button>Edit</button>
                     <button onClick={() => deleteTask(task.id)}>Delete</button>
                 </li>
             ))}
