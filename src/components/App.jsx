@@ -4,12 +4,12 @@ import NewTask from './NewTask'
 import '../index.css'
 
 function App() {
-  const [ tasks, setTasks ] = useState([{id: 1, description: "test", completed: false}, {id: 2, description: "test2", completed: false}]);
+  const [ tasks, setTasks ] = useState([{id: 1, description: "test", completed: false}, {id: 2, description: "test2", completed: false }]);
   const [ input, setInput ] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setTasks([...tasks, {id: Date.now(), description: input, completed: false}]);
+    setTasks([...tasks, {id: Date.now(), description: input, completed: false }]);
     setInput("");
   }
 
@@ -27,13 +27,19 @@ function App() {
     )));
   }
 
+  const handleEdit = (id, editedTask) => {
+    setTasks(tasks.map(task => (
+      task.id === id ? {...task, description: editedTask } : task
+    )));
+  }
+
   return (
     <>
       <div className='container'>
         <div className="item">
           <h1>Todo-list</h1>
           <NewTask input={input} handleChange={handleChange} handleSubmit={handleSubmit} />
-          <ToDoList tasks={tasks} deleteTask={deleteTask} toggleTask={toggleTask}/>
+          <ToDoList tasks={tasks} deleteTask={deleteTask} toggleTask={toggleTask} handleEdit={handleEdit} />
         </div>
         
       </div>
