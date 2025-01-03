@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import '../index.css';
 
-function ToDoList({ tasks }) {
+function ToDoList({ tasks, deleteTask }) {
 
     return (
         <ul>
             {tasks.map((task) => (
                 <li key={task.id}>
                     {task.description}
-                    <button>Delete</button>
+                    <button onClick={() => deleteTask(task.id)}>Delete</button>
                 </li>
             ))}
         </ul>

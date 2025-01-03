@@ -16,6 +16,10 @@ function App() {
     setInput(e.target.value);
   }
 
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id));
+  }
+
   return (
     <>
       <div className='container'>
@@ -25,7 +29,7 @@ function App() {
             <input type="text" placeholder='Describe a task' value={input} onChange={handleChange}/>
             <button onClick={handleSubmit}>Add</button>
           </form>
-          <ToDoList tasks={tasks}/>
+          <ToDoList tasks={tasks} deleteTask={deleteTask}/>
         </div>
         
       </div>
