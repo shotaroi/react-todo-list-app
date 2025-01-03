@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import '../index.css';
 
-function ToDoList({ tasks, deleteTask }) {
+function ToDoList({ tasks, deleteTask, toggleTask }) {
 
     return (
         <ul>
             {tasks.map((task) => (
-                <li key={task.id}>
-                    <input type='checkbox' />
-                    {task.description}
+                <li key={task.id} style={{textDecoration: task.completed ? "line-through" : "none"}} >
+                    <span onClick={() => toggleTask(task.id)}>{task.description}</span>
                     <button>Edit</button>
                     <button onClick={() => deleteTask(task.id)}>Delete</button>
                 </li>
