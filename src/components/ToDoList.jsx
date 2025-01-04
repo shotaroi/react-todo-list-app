@@ -6,7 +6,9 @@ function ToDoList({ tasks, deleteTask, toggleTask, handleEdit }) {
   const [ editedTask, setEditedTask ] = useState("");
 
   const handleEditedTask = (e) => {
-    setEditedTask(e.target.value);
+    if (editedTask.length < 60) {
+        setEditedTask(e.target.value);
+    }
   }
 
   const handleClickEdit = (id) => {
