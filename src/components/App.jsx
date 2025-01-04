@@ -14,7 +14,9 @@ function App() {
   }
 
   const handleChange = (e) => {
-    setInput(e.target.value);
+    if (e.target.value.length < 60) {
+      setInput(e.target.value);
+    }
   }
 
   const deleteTask = (id) => {
