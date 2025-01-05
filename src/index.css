@@ -32,6 +32,7 @@ button {
   margin: 0.5em;
   border: 2px solid;
   border-radius: 0.5em;
+  cursor: pointer
 }
 
 /* Keeps the dots centered */
@@ -39,7 +40,7 @@ ul {
   list-style-position: inside
 }
 
-.task {
+.task li {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,3 +48,7 @@ ul {
   border-radius: 0.5em;
   margin: 0 2em 1em;
 }
+
+.task button {
+}
+

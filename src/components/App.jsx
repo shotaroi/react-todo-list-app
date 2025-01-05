@@ -42,8 +42,7 @@ function App() {
           <h1>Todo-list</h1>
           <NewTask input={input} handleChange={handleChange} handleSubmit={handleSubmit} />
           <ToDoList tasks={tasks} deleteTask={deleteTask} toggleTask={toggleTask} handleEdit={handleEdit} />
-        </div>
-        
+        </div>    
       </div>
     </>
   )
