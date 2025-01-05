@@ -1,7 +1,9 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import ToDoList from './TodoList'
 import NewTask from './NewTask'
 import '../index.css'
+
+const LOCAL_STORAGE_KEY = "todo:savedTasks"; 
 
 function App() {
   const [ tasks, setTasks ] = useState([{id: 1, description: "test", completed: false}, {id: 2, description: "test2", completed: false }]);
@@ -9,7 +11,7 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setTasks([...tasks, {id: Date.now(), description: input, completed: false }]);
+    setAndSaveTasks([...tasks, {id: Date.now(), description: input, completed: false }]);
     setInput("");
   }
 
@@ -20,20 +22,36 @@ function App() {
   }
 
   const deleteTask = (id) => {
-    setTasks(tasks.filter((task) => task.id !== id));
+    setAndSaveTasks(tasks.filter((task) => task.id !== id));
   }
 
   const toggleTask = (id) => {
-    setTasks(tasks.map(task => (
+    setAndSaveTasks(tasks.map(task => (
       task.id === id ? { ...task, completed: !task.completed } : task
     )));
   }
 
   const handleEdit = (id, editedTask) => {
-    setTasks(tasks.map(task => (
+    setAndSaveTasks(tasks.map(task => (
       task.id === id ? {...task, description: editedTask } : task
     )));
   }
+
+  const setAndSaveTasks = (newTasks) => {
+    setTasks(newTasks);
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newTasks));
+  }
+
+  const loadSavedTasks = () => {
+    const tasks = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (tasks) {
+      setTasks(JSON.parse(tasks));
+    }
+  }
+
+  useEffect(() => {
+    loadSavedTasks();
+  }, []); 
 
   return (
     <>
