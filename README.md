@@ -3,8 +3,14 @@
 This is a simple Todo app with React.
 
 ## Features
+- Create, Edit, and Delete tasks in the to-do list.
+- Persistent data storage using local storage.
 
 ## Technologies Used
+- HTML5
+- CSS3
+- JavaScript
+- React.js
 
 ## How to use
 
